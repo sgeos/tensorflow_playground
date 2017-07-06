@@ -11,8 +11,8 @@ There is probably a better way to achieve the same effect.
 ```sh
 # terminal a
 rm -rf log*
-./tensorflow_tutorial.py
-tensorboard --logdir=log_tutorial
+./tensorflow_tutorial_final.py
+tensorboard --logdir=log_tutorial_final
 
 # terminal b or browser
 open http://localhost:6006/#graphs
