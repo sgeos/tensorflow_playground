@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-# Reference
-#   https://www.tensorflow.org/get_started/get_started
+# Reference:
+#   https://...
 
 def repl( expression, globals=None, locals=None ):
   for expression in expression.splitlines():
