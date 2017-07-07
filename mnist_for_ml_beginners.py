@@ -27,8 +27,8 @@ code = """
   mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
   x = tf.placeholder(tf.float32, [None, 784], name='input')
-  W = tf.Variable(tf.random_normal([784, 10], 0.0, 0.1, tf.float32), name='weights')
-  b = tf.Variable(tf.random_normal([10], 0.0, 0.01, tf.float32), name='biases')
+  W = tf.Variable(tf.truncated_normal([784, 10], stddev=0.1, dtype=tf.float32), name='weights')
+  b = tf.Variable(tf.truncated_normal([10], stddev=0.01, dtype=tf.float32), name='biases')
   y = tf.nn.softmax(tf.matmul(x, W) + b, name='output')
   y_ = tf.placeholder(tf.float32, [None, 10], name='expected_output')
 
