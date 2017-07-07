@@ -98,11 +98,13 @@ print("")
 code = """
 with tf.Session() as sess:
   steps = 20000
+  interval = 100
   print(f"Training Steps: {steps}")
+  print(f"Training Report Interval: Every {interval} Steps")
   sess.run(tf.global_variables_initializer())
   for i in range(steps):
     batch_x, batch_y = mnist.train.next_batch(100)
-    if 0 == i % 100:
+    if 0 == i % interval:
       train_accuracy = accuracy.eval(feed_dict={x: batch_x, y_: batch_y, keep_prob: 1.0})
       print(f"Training Step {i}: {train_accuracy * 100}% Accuracy")
     train_step.run(feed_dict={x: batch_x, y_: batch_y, keep_prob: 0.5})
