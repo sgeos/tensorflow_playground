@@ -26,11 +26,11 @@ code = """
   from tensorflow.examples.tutorials.mnist import input_data
   mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
-  x = tf.placeholder(tf.float32, [None, 784], name='x')
-  W = tf.Variable(tf.random_normal([784, 10], 0.0, 0.1, tf.float32), name='W')
-  b = tf.Variable(tf.random_normal([10], 0.0, 0.01, tf.float32), name='b')
-  y = tf.nn.softmax(tf.matmul(x, W) + b, name='network')
-  y_ = tf.placeholder(tf.float32, [None, 10])
+  x = tf.placeholder(tf.float32, [None, 784], name='input')
+  W = tf.Variable(tf.random_normal([784, 10], 0.0, 0.1, tf.float32), name='weights')
+  b = tf.Variable(tf.random_normal([10], 0.0, 0.01, tf.float32), name='biases')
+  y = tf.nn.softmax(tf.matmul(x, W) + b, name='output')
+  y_ = tf.placeholder(tf.float32, [None, 10], name='expected_output')
 
   cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=y_, logits=y))
   train_step = tf.train.GradientDescentOptimizer(0.05).minimize(cross_entropy)
@@ -42,7 +42,7 @@ repl(code.strip(), globals(), locals())
 print("")
 
 code = """
-for _ in range(100000):
+for _ in range(1000000):
   batch_xs, batch_ys = mnist.train.next_batch(100)
   sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
 """
