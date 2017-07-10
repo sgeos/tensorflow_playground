@@ -102,6 +102,7 @@ with tf.Graph().as_default():
     duration = time.time() - start_time
 
     if 0 == (step + 1) % FLAGS['snapshot_size'] or (step + 1) == FLAGS['max_steps']:
+      print(' ', end='')
       checkpoint_file = os.path.join(FLAGS['log_dir'], 'model.ckpt')
       saver.save(sess, checkpoint_file, global_step=step)
       print('Training Data Eval:')
@@ -122,7 +123,9 @@ with tf.Graph().as_default():
       sys.stdout.flush()
 
   summary_writer.close()
-  for line in ['Now, at the command line, we can start up TensorBoard.', f"$ tensorboard --logdir={FLAGS['logdir']}"]: print(line)
+  print(' Training complete.')
+  print('')
+  for line in ['Now, at the command line, we can start up TensorBoard.', f"$ tensorboard --logdir={FLAGS['log_dir']}"]: print(line)
   for line in ['TensorBoard runs as a local web app, on port 6006.', '$ open http://localhost:6006/#graphs', '$ open http://localhost:6006/#events']: print(line)
 """
 repl_block(code.strip(), globals(), locals())
