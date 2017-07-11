@@ -33,7 +33,7 @@ code = """
 
   FLAGS = {}
   FLAGS['learning_rate'] = 0.01
-  FLAGS['max_steps'] = 100000
+  FLAGS['max_steps'] = 1000000
   FLAGS['hidden1'] = 128
   FLAGS['hidden2'] = 32
   FLAGS['batch_size'] = 1000
