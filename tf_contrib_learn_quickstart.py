@@ -26,7 +26,7 @@ code = """
   import numpy as np
 
   IRIS_HOST = "http://download.tensorflow.org/data"
-  IRIS_LOCAL_PATH = "iris"
+  IRIS_LOCAL_PATH = "data_iris"
   IRIS_TRAINING = "iris_training.csv"
   IRIS_TEST = "iris_test.csv"
   IRIS_TRAINING_URL = f"{IRIS_HOST}/{IRIS_TRAINING}"
