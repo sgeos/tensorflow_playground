@@ -1,14 +1,22 @@
 [[source]]
+
 verify_ssl = true
 url = "https://pypi.python.org/simple"
 name = "pypi"
 
+
 [dev-packages]
 
+
+
 [packages]
+
 keras = ">=2.1.5"
 tensorflow = ">=1.7.0"
 matplotlib = "*"
+pandas = "*"
+
 
 [requires]
+
 python_version = "3.6"
